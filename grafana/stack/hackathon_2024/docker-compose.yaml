@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  grafana:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana           # Volume pour persister les données de Grafana
+      - /c/Users/eloir/Projets/hackathon_2024/grafana/sources:/var/lib/grafana/sources  # Volume pour ton fichier CSV
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin        # Mot de passe admin par défaut
+    container_name: grafana
+
+volumes:
+  grafana-data:

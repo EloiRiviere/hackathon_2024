@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - /c/Users/eloir/Projets/hackathon_2024/sources/data.csv:/usr/share/nginx/html/data.csv:ro
+      - /c/Users/eloir/Projets/hackathon_2024/data_sender/stack/hackathon_2024/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    container_name: csv_server
